@@ -32,17 +32,17 @@ const docSDK = new DocSDK('api_key');
 
 let job = await docSDK.jobs.create({
     tasks: {
-        'import-my-file': {
+        'ImportURL': {
             operation: 'import/url',
             url: 'https://my-url'
         },
-        'convert-my-file': {
+        'ConvertFile': {
             operation: 'convert',
             input: 'import-my-file',
             output_format: 'pdf',
             some_other_option: 'value'
         },
-        'export-my-file': {
+        'ExportResult': {
             operation: 'export/url',
             input: 'convert-my-file'
         }
