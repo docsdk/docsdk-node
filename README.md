@@ -38,19 +38,17 @@ let job = await docSDK.jobs.create({
         },
         'ConvertFile': {
             operation: 'convert',
-            input: 'import-my-file',
+            input: 'ImportURL',
             output_format: 'pdf',
             some_other_option: 'value'
         },
         'ExportResult': {
             operation: 'export/url',
-            input: 'convert-my-file'
+            input: 'ConvertFile'
         }
     }
 });
 ```
-
-You can use the [DocSDK Job Builder](https://docsdk.com/api/v2/jobs/builder) to see the available options for the various task types.
 
 ## Downloading Files
 
