@@ -39,8 +39,7 @@ let job = await docSDK.jobs.create({
         'ConvertFile': {
             operation: 'convert',
             input: 'ImportURL',
-            output_format: 'pdf',
-            some_other_option: 'value'
+            output_format: 'pdf'
         },
         'ExportResult': {
             operation: 'export/url',
