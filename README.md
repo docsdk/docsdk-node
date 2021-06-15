@@ -3,7 +3,6 @@
 > This is the official Node.js SDK v2 for the [DocSDK](https://docsdk.com/api/v2) _API v2_.
 > For API v1, please use [v1 branch](https://github.com/docsdk/docsdk-node/tree/v1) of this repository.
 
-[![Build Status](https://travis-ci.org/docsdk/docsdk-node.svg?branch=master)](https://travis-ci.org/docsdk/docsdk-node)
 [![npm](https://img.shields.io/npm/v/docsdk.svg)](https://www.npmjs.com/package/docsdk)
 [![npm](https://img.shields.io/npm/dt/docsdk.svg)](https://www.npmjs.com/package/docsdk)
 
