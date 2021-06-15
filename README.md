@@ -199,4 +199,3 @@ and even auto-fix as many things as possible by running
 ## Resources
 
 -   [API v2 Documentation](https://docsdk.com/docAPI)
--   [DocSDK Blog](https://docsdk.com/blog)
