@@ -150,6 +150,6 @@ const isValid = docSDK.webhooks.verify(
 ); // returns true or false
 ```
 
-### Resources
+### 参考资源
 * [DocSDK API 文档](https://www.docsdk.com/docAPI)
 * [DocSDK 主页](https://www.docsdk.com/)
