@@ -106,49 +106,6 @@ const inputFile = fs.createReadStream('./file.pdf');
 await docSDK.tasks.upload(uploadTask, inputFile, 'file.pdf');
 ```
 
-### Websocket Events
-
-The node SDK can subscribe to events of the [DocSDK socket.io API](https://docsdk.com/api/v2/socket#socket).
-
-```js
-const job = await docSDK.jobs.create({ ... });
-
-// Events for the job
-// Available events: created, updated, finished, failed
-docSDK.jobs.subscribeEvent(job.id, 'finished', event => {
-    // Job has finished
-    console.log(event.job);
-});
-
-// Events for all tasks of the job
-// Available events: created, updated, finished, failed
-docSDK.jobs.subscribeTaskEvent(job.id, 'finished', event => {
-    // Task has finished
-    console.log(event.task);
-});
-```
-
-When you don't want to receive any events any more you should close the socket:
-
-```js
-docSDK.socket.close();
-```
-
-### Webhook Signing
-
-The node SDK allows to verify webhook requests received from DocSDK.
-
-```js
-const payloadString = '...'; // The JSON string from the raw request body.
-const signature = '...'; // The value of the "DocSDK-Signature" header.
-const signingSecret = '...'; // You can find it in your webhook settings.
-
-const isValid = docSDK.webhooks.verify(
-    payloadString,
-    signature,
-    signingSecret
-); // returns true or false
-```
 
 ### Resources
 * [DocSDK API Documentation](https://www.docsdk.com/docAPI)
