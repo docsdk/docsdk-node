@@ -3,7 +3,6 @@
 </p>
 
 <h1 align="center">DocSDK</h1>
-<p align="center">一个智能文件（文档）转换的开发工具包</p>
 <p align="center"><a href="/README.md">English</a> | 中文</p>
 
 ## 关于 DocSDK
@@ -86,8 +85,7 @@ await new Promise((resolve, reject) => {
 
 ### 上传文件
 
-可通过 `import/upload` 上传文件。
-这是一种简单的上传方法：
+可通过 `import/upload` 上传文件。这是一种简单的上传方法：
 
 ```js
 const job = await docSDK.jobs.create({
@@ -104,34 +102,6 @@ const uploadTask = job.tasks.filter(task => task.name === 'UploadFile')[0];
 const inputFile = fs.createReadStream('./file.pdf');
 
 await docSDK.tasks.upload(uploadTask, inputFile, 'file.pdf');
-```
-
-### Websocket 事件
-
-Node.js SDK 可以订阅 [DocSDK socket.io API 的事件](https://docsdk.com/api/v2/socket#socket)：
-
-```js
-const job = await docSDK.jobs.create({ ... });
-
-// Events for the job
-// Available events: created, updated, finished, failed
-docSDK.jobs.subscribeEvent(job.id, 'finished', event => {
-    // Job has finished
-    console.log(event.job);
-});
-
-// Events for all tasks of the job
-// Available events: created, updated, finished, failed
-docSDK.jobs.subscribeTaskEvent(job.id, 'finished', event => {
-    // Task has finished
-    console.log(event.task);
-});
-```
-
-当您不想再接收任何事件时，您应该关闭 socket：
-
-```js
-docSDK.socket.close();
 ```
 
 ### 签署 Webhook
