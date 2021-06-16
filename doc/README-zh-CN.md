@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">DocSDK</h1>
-<p align="center">A development kit for smart file (document) conversion</p>
+<p align="center">一个智能文件（文档）转换的开发工具包</p>
 <p align="center"><a href="/README.md">English</a> | 中文</p>
 
 ## 关于 DocSDK
