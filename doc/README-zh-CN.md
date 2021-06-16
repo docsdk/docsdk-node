@@ -4,38 +4,37 @@
 
 <h1 align="center">DocSDK</h1>
 <p align="center">A development kit for smart file (document) conversion</p>
-<p align="center">English | <a href="doc/README-zh-CN.md">中文</a></p>
+<p align="center"><a href="/README.md">English</a> | 中文</p>
 
-## About DocSDK
-
-> DocSDK is a development kit for smart file conversion. We support the conversion of various types of documents, including pdf, doc, docx, xls, xlsx, ppt, pptx, dwg, caj, svg, html, json, png, jpg, gif and other formats, more conversion formats can be viewed on our [website](https://www.docsdk.com/). There are 8 kinds of SDK support, including Java, Node.js, PHP, Python, Swift, CLI, AWS-Lambda and Laravel.
+## 关于 DocSDK
+> DocSDK 是一个智能文件转换的开发工具包。我们支持各类文档的转换，其中包括 pdf、doc、docx、xls、xlsx、ppt、pptx、dwg、caj、svg、html、json、png、jpg 和 gif 等等各种格式的转换，更多转换格式可查看[九云图网站](https://www.docsdk.com/) 。现有八种 SDK 的支持，其中包括 Java、Node.js、PHP、Python、Swift、CLI、AWS-Lambda 和 Laravel。
 > 
-> **Keywords: document conversion, file conversion, PDF to Word, PDF to PPT, PDF to HTML**
+> **关键词： 文档转换，文件转换，PDF转Word，PDF转PPT，PDF转HTML**
 
 ## docsdk-node
 
-> This is the official Node.js SDK for the [DocSDK API](https://www.docsdk.com/docAPI#sdk).
+> 这是 [九云图 DocSDK API](https://www.docsdk.com/docAPI#sdk) 官方的 Node.js 开发工具包.
 
 [![npm](https://img.shields.io/npm/v/docsdk.svg)](https://www.npmjs.com/package/docsdk)
 [![npm](https://img.shields.io/npm/dt/docsdk.svg)](https://www.npmjs.com/package/docsdk)
 
-### Installation
+### 安装
 
     npm install --save docsdk
 
-Load as ESM module:
+导入依赖模块包:
 
 ```js
 import DocSDK from 'docsdk';
 ```
 
-... or via require:
+...或者引用:
 
 ```js
 const DocSDK = require('docsdk');
 ```
 
-### Creating Jobs
+### 创建 Jobs
 
 ```js
 import DocSDK from 'docsdk';
@@ -61,9 +60,9 @@ let job = await docSDK.jobs.create({
 });
 ```
 
-### Downloading Files
+### 下载文件
 
-DocSDK can generate public URLs for using `export/url` tasks. You can use these URLs to download output files.
+DocSDK 可以使用 `export/url` 生成公开的链接，您可以使用这些 URL 下载输出文件。
 
 ```js
 job = await docSDK.jobs.wait(job.id); // Wait for job completion
@@ -85,10 +84,10 @@ await new Promise((resolve, reject) => {
 });
 ```
 
-### Uploading Files
+### 上传文件
 
-Uploads to DocSDK are done via `import/upload` tasks.
-This SDK offers a convenient upload method:
+可通过 `import/upload` 上传文件。
+这是一种简单的上传方法：
 
 ```js
 const job = await docSDK.jobs.create({
@@ -107,9 +106,9 @@ const inputFile = fs.createReadStream('./file.pdf');
 await docSDK.tasks.upload(uploadTask, inputFile, 'file.pdf');
 ```
 
-### Websocket Events
+### Websocket 事件
 
-The node SDK can subscribe to events of the [DocSDK socket.io API](https://docsdk.com/api/v2/socket#socket).
+Node.js SDK 可以订阅 [DocSDK socket.io API 的事件](https://docsdk.com/api/v2/socket#socket)：
 
 ```js
 const job = await docSDK.jobs.create({ ... });
@@ -129,15 +128,15 @@ docSDK.jobs.subscribeTaskEvent(job.id, 'finished', event => {
 });
 ```
 
-When you don't want to receive any events any more you should close the socket:
+当您不想再接收任何事件时，您应该关闭 socket：
 
 ```js
 docSDK.socket.close();
 ```
 
-### Webhook Signing
+### 签署 Webhook
 
-The node SDK allows to verify webhook requests received from DocSDK.
+Node.js SDK 允许验证从 DocSDK 收到的 webhook 请求。
 
 ```js
 const payloadString = '...'; // The JSON string from the raw request body.
@@ -152,5 +151,5 @@ const isValid = docSDK.webhooks.verify(
 ```
 
 ### Resources
-* [DocSDK API Documentation](https://www.docsdk.com/docAPI)
-* [DocSDK home page](https://www.docsdk.com/)
+* [DocSDK API 文档](https://www.docsdk.com/docAPI)
+* [DocSDK 主页](https://www.docsdk.com/)
